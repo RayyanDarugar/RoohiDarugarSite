@@ -36,7 +36,7 @@ export default function ContactForm() {
         <label>Email<input name="email" type="email" required autoComplete="email" /></label>
       </div>
       <div className="two">
-        <label>Phone <span className="opt">(optional)</span><input name="phone" type="tel" autoComplete="tel" /></label>
+        <label><span>Phone <span className="opt">(optional)</span></span><input name="phone" type="tel" autoComplete="tel" /></label>
         <label>
           I&apos;m interested in
           <select name="topic" defaultValue="">

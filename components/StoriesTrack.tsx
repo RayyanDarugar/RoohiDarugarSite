@@ -31,7 +31,7 @@ export default function StoriesTrack({ title, stories }: { title: string; storie
           </div>
         </div>
       </div>
-      <div className="strack" ref={track}>
+      <div className="strack" ref={track} tabIndex={0} role="region" aria-label="Client stories, scroll horizontally">
         {stories.map((s) => (
           <article className="story" key={s.name}>
             <div className="img">

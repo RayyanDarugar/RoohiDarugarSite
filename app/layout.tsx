@@ -42,13 +42,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <a className="skip" href="#main">Skip to content</a>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        <div className="banner">
+        <aside className="banner" aria-label="Announcement">
           Now welcoming new clients for 2027 planning. <a href={site.bookingUrl}>Schedule a free consultation →</a>
-        </div>
+        </aside>
         <Nav />
         <main id="main">{children}</main>
         <Reveal />
         <Footer />
+        <aside aria-label="FINRA BrokerCheck">
         <a
           className="brokercheck"
           href={site.brokerCheckUrl}
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <small>by</small>
           <em>FINRA</em>
         </a>
+        </aside>
       </body>
     </html>
   );

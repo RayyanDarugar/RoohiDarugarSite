@@ -32,7 +32,7 @@ export default function Tools() {
               <Link className="tool" href={`/tools/${t.slug}`} key={t.title}>
                 <div className="ico">{icons[i]}</div>
                 <div className="eyebrow" style={{ fontSize: 12, color: "var(--ink-soft)" }}>{t.tag}</div>
-                <h3>{t.title}</h3>
+                <h2>{t.title}</h2>
                 <p>{t.body}</p>
                 <span className="link" style={{ alignSelf: "flex-start" }}>{t.cta} →</span>
               </Link>

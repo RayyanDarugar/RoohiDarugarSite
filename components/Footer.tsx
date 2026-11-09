@@ -16,7 +16,7 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <h4>Explore</h4>
+            <h2 className="fh">Explore</h2>
             <ul>
               <li><Link href="/services">Services</Link></li>
               <li><Link href="/who-i-serve">Who I Serve</Link></li>
@@ -25,7 +25,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Learn</h4>
+            <h2 className="fh">Learn</h2>
             <ul>
               <li><Link href="/insights">Insights</Link></li>
               <li><Link href="/tools">Tools</Link></li>
@@ -34,7 +34,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Disclosures</h4>
+            <h2 className="fh">Disclosures</h2>
             <ul>
               <li><a href={site.brokerCheckUrl} target="_blank" rel="noopener noreferrer">FINRA BrokerCheck</a></li>
               <li>
