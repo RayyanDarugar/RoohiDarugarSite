@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Font comparison</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Libre+Caslon+Display&family=Source+Serif+4:opsz,wght@8..60,400&family=Gloock&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400,0,0&family=DM+Serif+Display&family=Young+Serif&family=Newsreader:opsz,wght@6..72,400&family=Hanken+Grotesk:wght@400;600&family=Albert+Sans:wght@400;600&family=Instrument+Sans:wght@400;600&family=Inter:wght@400;600&family=Figtree:wght@400;600&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fdfcf9;color:#2b2928;font-family:Inter,sans-serif;padding:40px}
+h1{font:600 14px/1 Inter;letter-spacing:.14em;text-transform:uppercase;color:#6b6a69;margin:50px 0 20px}
+.ref{width:560px;height:130px;background:url(ref-ellevest.png) /* local-only capture, not committed */ -86px -30px no-repeat;border:1px dashed #becfbe}
+.refb{width:700px;height:150px;background:url(ref-ellevest.png) /* local-only capture, not committed */ -86px -172px no-repeat;border:1px dashed #becfbe}
+.row{display:grid;grid-template-columns:220px 1fr;align-items:center;gap:30px;padding:18px 0;border-bottom:1px solid #e6ded4}
+.row label{font:13px/1.4 "DM Mono",monospace;color:#6b6a69}
+.row label b{display:block;color:#2b2928;font:600 15px Inter;margin-bottom:4px}
+.h{font-size:48px;line-height:1.1;letter-spacing:-.01em;color:#2b2928}
+.p{font-size:19px;line-height:1.55;max-width:680px}
+</style></head><body>
+<h1>Ellevest headline (GT Super Display, real)</h1>
+<div class="ref"></div>
+<h1>Headline candidates (free)</h1>
+<div class="row"><label><b>A · Playfair Display</b>Ellevest's own fallback font</label><div class="h" style="font-family:'Playfair Display'">A clearer picture of what matters most</div></div>
+<div class="row"><label><b>B · Libre Caslon Display</b></label><div class="h" style="font-family:'Libre Caslon Display'">A clearer picture of what matters most</div></div>
+<div class="row"><label><b>C · Source Serif 4 (display)</b></label><div class="h" style="font-family:'Source Serif 4';font-variation-settings:'opsz' 60">A clearer picture of what matters most</div></div>
+<div class="row"><label><b>D · Gloock</b></label><div class="h" style="font-family:Gloock">A clearer picture of what matters most</div></div>
+<div class="row"><label><b>E · Fraunces (hard)</b></label><div class="h" style="font-family:Fraunces;font-variation-settings:'opsz' 144,'SOFT' 0,'WONK' 0">A clearer picture of what matters most</div></div>
+<div class="row"><label><b>F · DM Serif Display</b></label><div class="h" style="font-family:'DM Serif Display'">A clearer picture of what matters most</div></div>
+<div class="row"><label><b>G · Young Serif</b></label><div class="h" style="font-family:'Young Serif'">A clearer picture of what matters most</div></div>
+<div class="row"><label><b>current · Newsreader</b>the "looks like Claude" one</label><div class="h" style="font-family:Newsreader">A clearer picture of what matters most</div></div>
+
+<h1>Ellevest body text (Maison Neue, real)</h1>
+<div class="refb"></div>
+<h1>Body candidates (free)</h1>
+<div class="row"><label><b>1 · Hanken Grotesk</b></label><div class="p" style="font-family:'Hanken Grotesk'">Most financial tools start with your balance sheet — we start with you. Your plan brings into focus how you think about money and what you're working toward.</div></div>
+<div class="row"><label><b>2 · Albert Sans</b></label><div class="p" style="font-family:'Albert Sans'">Most financial tools start with your balance sheet — we start with you. Your plan brings into focus how you think about money and what you're working toward.</div></div>
+<div class="row"><label><b>3 · Instrument Sans</b></label><div class="p" style="font-family:'Instrument Sans'">Most financial tools start with your balance sheet — we start with you. Your plan brings into focus how you think about money and what you're working toward.</div></div>
+<div class="row"><label><b>4 · Inter</b></label><div class="p" style="font-family:Inter">Most financial tools start with your balance sheet — we start with you. Your plan brings into focus how you think about money and what you're working toward.</div></div>
+<div class="row"><label><b>5 · Figtree</b></label><div class="p" style="font-family:Figtree">Most financial tools start with your balance sheet — we start with you. Your plan brings into focus how you think about money and what you're working toward.</div></div>
+<div class="row"><label><b>current · DM Sans</b></label><div class="p" style="font-family:'DM Sans'">Most financial tools start with your balance sheet — we start with you. Your plan brings into focus how you think about money and what you're working toward.</div></div>
+</body></html>

@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+.next/
+out/
+.vercel/
+.env*
+# third-party page captures used only for local comparison
+docs/design/sketch-fonts/ref-*.png

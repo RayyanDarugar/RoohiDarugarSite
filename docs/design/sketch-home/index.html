@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roohi Darugar — homepage sketch v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Hanken+Grotesk:wght@400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* Palette: Ellevest tokens (Peek export) + dusty-rose accent. Type: Playfair Display (Ellevest's own fallback for GT Super) + Hanken Grotesk (closest free to Maison Neue). */
+:root{
+  --paper:#fdfcf9; --white:#ffffff; --ink:#2b2928; --ink-soft:#6b6a69; --line:#e6ded4;
+  --green-900:#2a4431; --green-700:#3b6348; --green-500:#26724d; --sage:#e1eada; --sage-2:#d8e5d6; --sage-3:#becfbe;
+  --linen:#f6f4ea; --linen-2:#f2ede8; --lime-wash:#f4f8ea; --mist:#e1e9ef;
+  --rose-50:#fbf3f1; --rose-100:#f5e1dd; --rose-300:#e3aaa4; --rose-600:#b45f63;
+  --serif:"Playfair Display", Georgia, serif; --sans:"Hanken Grotesk", system-ui, sans-serif; --mono:"DM Mono", ui-monospace, monospace;
+  --wrap:1340px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 40px}
+.eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;line-height:1.12}
+h2{font-size:clamp(36px,4vw,54px)}
+.center{text-align:center}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--green-700);color:#fff;text-decoration:none;font-weight:600;font-size:18px;padding:17px 32px;border-radius:999px;transition:background .2s}
+.btn:hover{background:var(--green-900)}
+.btn.ghost{background:transparent;color:var(--green-700);box-shadow:inset 0 0 0 1.5px var(--green-700)}
+.link{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:2px solid var(--rose-300);padding-bottom:2px}
+.link:hover{color:var(--green-500)}
+.tbd{background:#fff6c9;color:#6b5a00;font-family:var(--mono);font-size:12px;padding:1px 6px;border-radius:3px;letter-spacing:0;text-transform:none;white-space:nowrap;font-style:normal}
+section{padding:120px 0}
+
+/* NAV */
+.banner{background:var(--sage);text-align:center;font-size:15px;padding:12px 16px}
+.banner b{font-weight:600}
+.nav{position:sticky;top:0;z-index:20;background:rgba(253,252,249,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:96px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.mark{width:50px;height:50px;border-radius:50%;background:var(--green-900);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-size:20px;letter-spacing:-.02em;padding-top:1px}
+.logo .name{display:flex;flex-direction:column;line-height:1}
+.logo b{font-family:var(--serif);font-weight:400;font-size:27px;letter-spacing:-.005em}
+.logo small{font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-top:5px}
+footer .logo small{color:#becfbe}
+.nav ul{display:flex;gap:44px;list-style:none;font-size:19px}
+.nav ul a{text-decoration:none}
+.nav ul a:hover{color:var(--green-500)}
+.nav .btn{padding:14px 28px;font-size:17px}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:0;background:linear-gradient(110deg,var(--lime-wash) 0%,var(--paper) 40%,var(--mist) 100%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);min-height:max(640px, calc(100vh - 185px))}
+.hero-copy{padding:80px 90px 80px 0;align-self:center}
+.hero h1{font-size:clamp(46px,5vw,78px);margin:22px 0 26px;max-width:13.5ch}
+.hero h1 em{color:var(--green-500)}
+.hero p.sub{font-size:22px;color:var(--ink-soft);max-width:43ch;margin-bottom:40px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.portrait{position:relative;align-self:end;height:100%;min-height:600px}
+.portrait .disc{position:absolute;width:560px;height:560px;border-radius:50%;background:var(--sage);right:0;bottom:-130px}
+.portrait .disc.two{width:360px;height:360px;background:var(--rose-100);right:-160px;top:50px;bottom:auto;opacity:.8}
+.portrait img.her{position:absolute;bottom:0;right:-20px;width:min(680px,122%);
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 14%);mask-image:linear-gradient(to right,transparent 0,#000 14%)}
+.float{position:absolute;background:#fff;border-radius:14px;box-shadow:0 20px 50px -20px rgba(42,68,49,.35);padding:16px 20px;font-size:15px;z-index:2}
+.float .eyebrow{font-size:11px;color:var(--ink-soft);margin-bottom:6px}
+.float.a{left:-30px;bottom:110px;display:flex;gap:14px;align-items:center}
+.float.a b{font-family:var(--serif);font-size:34px;font-weight:400;line-height:1}
+.float.b{right:-40px;top:90px;width:240px}
+.float.b ul{list-style:none;display:grid;gap:7px}
+.float.b li{display:flex;gap:10px;align-items:center}
+.float.b li i{width:16px;height:16px;border:1.5px solid var(--green-500);border-radius:3px;display:grid;place-items:center;font-style:normal;color:var(--green-500);font-size:11px}
+
+/* CREDIBILITY BAR (full bleed) */
+.cred{background:var(--green-900);color:#fff;padding:0}
+.cred .row{display:grid;grid-template-columns:repeat(4,1fr)}
+.cred .item{padding:38px 34px;border-right:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:6px}
+.cred .item:last-child{border-right:0}
+.cred b{font-family:var(--serif);font-weight:400;font-size:34px;line-height:1.1}
+.cred span{color:#c5d8be;font-size:15px}
+.cred a{color:#fff;text-decoration:none;border-bottom:1.5px solid var(--rose-300);align-self:flex-start;font-size:15px;margin-top:4px}
+
+/* QUESTIONS (Paradigm cards, flat) */
+.questions h2{max-width:20ch;margin:0 auto}
+.rule{width:110px;height:3px;background:var(--rose-300);margin:28px auto 64px}
+.qgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.qcard{background:var(--linen);padding:40px 32px 48px;min-height:300px;border-radius:4px;transition:background .25s}
+.qcard:hover{background:var(--sage)}
+.qcard svg{width:54px;height:54px;stroke:var(--rose-600);margin-bottom:40px}
+.qcard p{font-family:var(--serif);font-size:25px;line-height:1.3}
+
+/* ANSWER (full bleed dark) */
+.answer{position:relative;overflow:hidden;background:var(--green-900);color:#e1eada;text-align:center}
+.answer h2{color:#fff;max-width:22ch;margin:22px auto 30px}
+.answer h2 em{color:var(--rose-300)}
+.answer p{max-width:62ch;margin:0 auto 18px;font-size:19px}
+.answer .eyebrow{color:#becfbe}
+.answer .lines{position:absolute;inset:0;width:100%;height:100%;opacity:.16;pointer-events:none}
+.answer .btn{background:#fff;color:var(--green-900);margin-top:26px}
+.answer .btn:hover{background:var(--rose-100)}
+
+/* WHO I SERVE */
+.serve-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:60px}
+.serve-head h2{max-width:15ch}
+.serve-head p{max-width:42ch;color:var(--ink-soft)}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.scard img{aspect-ratio:4/3;object-fit:cover;width:100%;border-radius:6px;margin-bottom:28px}
+.scard .eyebrow{font-size:12px;color:var(--ink-soft);margin-bottom:10px}
+.scard h3{font-size:32px;margin-bottom:14px}
+.scard ul{list-style:none;display:grid;gap:10px;margin-bottom:24px;padding-top:16px;border-top:1px solid var(--line)}
+.scard li{padding-left:26px;position:relative;font-size:17px}
+.scard li::before{content:"";position:absolute;left:0;top:8px;width:13px;height:7px;border-left:2px solid var(--green-500);border-bottom:2px solid var(--green-500);transform:rotate(-45deg)}
+
+/* HOW IT WORKS (Ellevest vignettes) */
+.how{background:var(--white)}
+.how h2{margin:16px 0 64px}
+.hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.hcard{background:var(--linen);border-radius:28px;padding:44px 40px 0;display:flex;flex-direction:column;overflow:hidden}
+.hcard h3{font-size:28px;margin-bottom:14px}
+.hcard p{font-size:17px;margin-bottom:40px}
+.vig{position:relative;height:300px;margin:auto -40px 0}
+.vig img.bg{position:absolute;inset:60px 0 0 0;width:100%;height:calc(100% - 60px);object-fit:cover}
+.paper{position:absolute;left:40px;top:0;background:#fffdf8;box-shadow:0 18px 40px -18px rgba(43,41,40,.45);border-radius:3px;padding:18px 22px 20px;z-index:1}
+.paper .eyebrow{font-size:11px;color:var(--ink-soft);margin-bottom:10px}
+.note-card{width:230px;transform:rotate(-2.5deg)}
+.note-card ol{list-style:none;counter-reset:n;display:grid;gap:7px}
+.note-card li{counter-increment:n;font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.25;display:flex;gap:10px}
+.note-card li::before{content:counter(n);font-family:var(--mono);font-style:normal;font-size:11px;color:var(--rose-600);margin-top:4px}
+.tabs-card{width:250px;padding:18px 0 8px}
+.tabs-card .eyebrow{padding:0 22px}
+.tabs-card .tab{display:flex;gap:12px;align-items:center;padding:9px 22px;border-top:1px solid var(--line);font-size:14.5px}
+.tabs-card .tab i{width:6px;height:18px;border-radius:2px}
+.cal-card{display:flex;gap:16px;align-items:center;padding:16px 20px;width:auto;right:40px}
+.cal-card .date{flex:none;width:58px;border-radius:6px;overflow:hidden;text-align:center;border:1px solid var(--line)}
+.cal-card .date small{display:block;background:var(--rose-600);color:#fff;font-size:11px;letter-spacing:.12em;padding:3px 0;font-weight:600}
+.cal-card .date b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.3}
+.cal-card .eyebrow{margin-bottom:2px}
+.cal-card strong{display:block;font-size:15px;font-weight:600}
+.cal-card span{display:flex;gap:8px;align-items:center;font-size:13.5px;color:var(--ink-soft);margin-top:6px}
+.cal-card span img{width:24px;height:24px;border-radius:50%;object-fit:cover;object-position:top}
+.how .cta{text-align:center;margin-top:56px}
+
+/* WOMEN SPOTLIGHT (Glass) */
+.women{background:linear-gradient(180deg,var(--rose-50),var(--paper))}
+.women .wrap{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.women h2 em{color:var(--rose-600)}
+.women .lede{color:var(--ink-soft);margin:24px 0 38px;max-width:46ch}
+.promises{list-style:none;counter-reset:p}
+.promises li{counter-increment:p;display:flex;gap:26px;align-items:baseline;padding:22px 0;border-top:1px solid var(--rose-100);font-family:var(--serif);font-size:28px}
+.promises li:last-child{border-bottom:1px solid var(--rose-100)}
+.promises li::before{content:"0" counter(p);font-family:var(--mono);font-size:14px;color:var(--rose-600)}
+.women-media{position:relative}
+.women-media img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px}
+.fit{position:absolute;left:-70px;bottom:-50px;width:380px;background:var(--green-900);color:#fff;border-radius:6px;padding:34px 34px 36px}
+.fit .eyebrow{color:#becfbe;font-size:12px}
+.fit h3{font-size:26px;margin:10px 0 20px}
+.fit ul{list-style:none;display:grid;gap:14px;margin-bottom:26px}
+.fit li{display:flex;gap:12px;align-items:flex-start;font-size:16px;color:#e1eada;line-height:1.45}
+.fit li svg{flex:none;width:20px;height:20px;margin-top:2px}
+.fit .link{color:#fff}
+
+/* TIMELINE with full-bleed image header */
+.tl-hero{position:relative;height:520px;background:url(img/lajolla.jpg) center/cover;display:flex;align-items:flex-end}
+.tl-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(253,252,249,.92) 0%,rgba(253,252,249,.55) 45%,rgba(253,252,249,0) 75%)}
+.tl-hero .wrap{position:relative;width:100%;padding-bottom:80px}
+.tl-hero h2{max-width:13ch;margin-top:16px;font-size:clamp(40px,4.6vw,64px)}
+.timeline{padding-top:90px}
+.tl{position:relative;max-width:1000px;margin:0 auto}
+.tl::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(var(--sage-3),var(--rose-300));transform:translateX(-50%)}
+.tl-row{display:grid;grid-template-columns:1fr 100px 1fr;align-items:center;margin-bottom:54px}
+.tl-year{font-family:var(--serif);font-size:62px;line-height:1;color:var(--green-700)}
+.tl-row:nth-child(even) .tl-year{color:var(--rose-600)}
+.tl-dot{justify-self:center;width:22px;height:22px;border-radius:50%;background:var(--paper);border:3px solid var(--green-500);position:relative;z-index:1}
+.tl-text{font-size:17px;color:var(--ink-soft);max-width:36ch}
+.tl-text b{display:block;color:var(--ink);font-weight:600;font-size:19px;margin-bottom:4px}
+.tl-row .left{text-align:right;justify-self:end}
+.tl-row .right{justify-self:start}
+
+/* STORIES (full bleed, edge-to-edge scroller) */
+.stories{background:var(--green-900);color:#fff;overflow:hidden}
+.stories-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:56px}
+.stories-head p{color:#c5d8be;max-width:40ch}
+.stories .arrows{display:flex;gap:12px}
+.stories .arrows i{width:54px;height:54px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);display:grid;place-items:center;font-style:normal;font-size:20px}
+.strack{display:flex;gap:28px;padding-left:max(40px, calc((100vw - var(--wrap))/2 + 40px));overflow-x:auto;scrollbar-width:none;padding-right:40px}
+.story{flex:none;width:460px;background:var(--paper);color:var(--ink);border-radius:6px;overflow:hidden}
+.story img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.story .body{padding:30px 32px 34px}
+.story .eyebrow{font-size:12px;color:var(--rose-600)}
+.story h3{font-size:30px;margin:8px 0 6px}
+.story .who{font-weight:600;font-size:16px;margin-bottom:12px}
+.story p{color:var(--ink-soft);font-size:17px;margin-bottom:20px}
+.stories .disclosure{color:#a9bba9}
+.disclosure{font-size:13px;font-style:italic;color:var(--ink-soft);text-align:center;max-width:90ch;margin:50px auto 0;line-height:1.55;padding:0 20px}
+
+/* REVIEWS */
+.reviews{background:linear-gradient(120deg,var(--lime-wash),var(--mist));text-align:center}
+.reviews blockquote{font-family:var(--serif);font-size:clamp(32px,3.4vw,48px);line-height:1.22;max-width:24ch;margin:34px auto 30px}
+.reviews blockquote em{font-style:normal;color:var(--green-500)}
+.reviews .by{font-family:var(--mono);letter-spacing:.12em;font-size:14px}
+.dots{display:flex;gap:10px;justify-content:center;margin-top:36px}
+.dots i{width:9px;height:9px;border-radius:50%;background:var(--sage-3)}
+.dots i:first-child{background:var(--green-700)}
+
+/* COMMUNITY (half-bleed image) */
+.community{padding:0;background:var(--linen)}
+.community .grid{display:grid;grid-template-columns:1fr 1fr;min-height:640px}
+.community .img{background:url(img/community.jpg) center/cover}
+.community .txt{padding:110px max(40px, calc((100vw - var(--wrap))/2 + 40px)) 110px 80px}
+.community p.lede{color:var(--ink-soft);margin:22px 0 36px}
+.orgs{display:grid;gap:0;margin-bottom:34px}
+.org{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:18px 0;border-top:1px solid var(--line)}
+.org:last-child{border-bottom:1px solid var(--line)}
+.org b{font-family:var(--serif);font-weight:400;font-size:23px}
+.org span{font-size:15px;color:var(--ink-soft)}
+
+/* FAQ */
+.faq .wrap{display:grid;grid-template-columns:1fr 1.35fr;gap:90px}
+.faq p.lede{color:var(--ink-soft);margin-top:20px;max-width:36ch}
+details{border-bottom:1px solid var(--line);padding:28px 0}
+details:first-child{border-top:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-size:20px;font-weight:500}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";flex:none;width:12px;height:12px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:rotate(45deg);margin-top:4px;transition:transform .2s}
+details[open] summary::after{transform:rotate(-135deg);margin-top:10px}
+details p{color:var(--ink-soft);margin-top:14px;max-width:60ch}
+
+/* FINAL CTA (full-bleed image) */
+.final{position:relative;padding:0;background:url(img/balboa.jpg) center/cover}
+.final::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(42,68,49,.92) 0%,rgba(42,68,49,.7) 50%,rgba(42,68,49,.15) 100%)}
+.final .wrap{position:relative;padding-top:120px;padding-bottom:120px;color:#fff;display:flex;align-items:center;gap:40px}
+.final img{width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:top;background:var(--sage);border:4px solid rgba(255,255,255,.3)}
+.final h2{color:#fff;font-size:52px}
+.final p{color:#d8e5d6;margin:10px 0 28px;font-size:20px}
+.final .btn{background:#fff;color:var(--green-900)}
+
+/* FOOTER */
+footer{background:#1f3325;color:#d8e5d6;padding:80px 0 50px;font-size:15px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.12)}
+footer .logo b{color:#fff}
+footer .mark{background:#fff;color:var(--green-900)}
+footer h4{font-family:var(--mono);font-weight:400;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#becfbe;margin-bottom:16px}
+footer ul{list-style:none;display:grid;gap:10px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+.legal{padding-top:36px;font-size:12.5px;line-height:1.65;color:#a9bba9;display:grid;gap:12px}
+.legal a{text-decoration:underline}
+
+/* BrokerCheck badge (FINRA requires a readily apparent BrokerCheck link) */
+.brokercheck{position:fixed;right:0;bottom:0;z-index:50;background:#fff;border:1px solid var(--line);border-right:0;border-bottom:0;border-radius:6px 0 0 0;padding:7px 14px 6px;text-decoration:none;display:flex;align-items:baseline;gap:4px;box-shadow:0 -4px 18px -10px rgba(0,0,0,.25);font-family:Arial,sans-serif}
+.brokercheck b{color:#1f77b4;font-size:15px;font-weight:700;letter-spacing:-.01em}
+.brokercheck b span{color:#0d3a5c}
+.brokercheck small{font-size:9px;color:#6b6a69}
+.brokercheck em{font-style:normal;font-size:12px;font-weight:700;color:#0d3a5c;letter-spacing:.04em}
+
+@media (max-width:1050px){
+  .nav ul{display:none}
+  .hero-grid,.women .wrap,.faq .wrap,.community .grid{grid-template-columns:1fr}
+  .hero-copy{padding:60px 24px 10px}
+  .portrait{min-height:520px}
+  .float.b{display:none}
+  .cred .row{grid-template-columns:1fr 1fr}
+  .qgrid{grid-template-columns:1fr 1fr}
+  .sgrid,.hgrid{grid-template-columns:1fr}
+  .serve-head,.stories-head{flex-direction:column;align-items:start}
+  .fit{position:relative;left:0;bottom:0;width:auto;margin-top:-60px;margin-left:20px;margin-right:20px}
+  .tl::before{left:20px}
+  .tl-row{grid-template-columns:40px 1fr;gap:16px}
+  .tl-row .left,.tl-row .right{grid-column:2;text-align:left;justify-self:start}
+  .tl-dot{grid-row:1/3;grid-column:1}
+  .community .img{min-height:360px}
+  .community .txt{padding:70px 24px}
+  .story{width:320px}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .final .wrap{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:600px){ .wrap{padding:0 16px} .qgrid,.cred .row{grid-template-columns:1fr} section{padding:80px 0} }
+</style>
+</head>
+<body>
+
+<div class="banner">Now welcoming new clients for 2027 planning. <b>Schedule a free consultation →</b></div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#"><span class="mark">RD</span><span class="name"><b>Roohi Darugar</b><small>CRPC® · Financial Advisor</small></span></a>
+    <ul>
+      <li><a href="#">Services</a></li>
+      <li><a href="#serve">Who I Serve</a></li>
+      <li><a href="#">Insights</a></li>
+      <li><a href="#">Tools</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <a class="btn" href="#">Schedule a Consultation</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">Roohi Darugar, CRPC® · San Diego</div>
+      <h1>Wealth planning built around <em>your</em> life</h1>
+      <p class="sub">Personal financial guidance for women, professionals, and families, from an advisor who has been part of this community for over 25 years.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="#">Schedule a Consultation</a>
+        <a class="btn ghost" href="#">Meet Roohi</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <div class="disc two"></div>
+      <div class="disc"></div>
+      <img class="her" src="../../../assets/photos/headshot-cutout.png" alt="Roohi Darugar">
+      <div class="float a"><b>25+</b><div><div class="eyebrow">Years advising</div>San Diego families</div></div>
+      <div class="float b"><div class="eyebrow">Your plan covers</div><ul><li><i>✓</i>Retirement income</li><li><i>✓</i>Social Security timing</li><li><i>✓</i>Family & legacy</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY BAR -->
+<div class="cred">
+  <div class="wrap"><div class="row">
+    <div class="item"><b>25+ years</b><span>advising clients in San Diego</span></div>
+    <div class="item"><b>CRPC®</b><span>Chartered Retirement Planning Counselor</span></div>
+    <div class="item"><b>Independent</b><span>Securities offered through LPL Financial, Member FINRA/SIPC</span></div>
+    <div class="item"><b>Verified</b><span>Check her background on FINRA BrokerCheck</span><a href="https://brokercheck.finra.org/" target="_blank">View BrokerCheck →</a></div>
+  </div></div>
+</div>
+
+<!-- QUESTIONS -->
+<section class="questions">
+  <div class="wrap">
+    <h2 class="center">Do you have more questions about your money than answers?</h2>
+    <div class="rule"></div>
+    <div class="qgrid">
+      <div class="qcard"><svg viewBox="0 0 48 48" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M24 44c11 0 20-9 20-20S35 4 24 4 4 13 4 24c0 4 1 7 3 10l-3 10 10-3c3 2 6 3 10 3z"/><path d="M18 18a6 6 0 1 1 8 6c-1.5.8-2 2-2 3.5V29"/><circle cx="24" cy="35" r=".8"/></svg><p>Am I on track to retire when I want to?</p></div>
+      <div class="qcard"><svg viewBox="0 0 48 48" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="12" width="36" height="26" rx="3"/><path d="M6 20h36M14 30h8"/></svg><p>How do I turn my savings into a paycheck?</p></div>
+      <div class="qcard"><svg viewBox="0 0 48 48" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z"/><path d="M17 24l5 5 9-10"/></svg><p>What happens to my family if something happens to me?</p></div>
+      <div class="qcard"><svg viewBox="0 0 48 48" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="24" cy="24" r="19"/><path d="M24 13v11l7 5"/></svg><p>I'm managing it all alone. Where do I even start?</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ANSWER (full bleed) -->
+<section class="answer">
+  <svg class="lines" viewBox="0 0 1440 600" preserveAspectRatio="none" fill="none" stroke="#becfbe" stroke-width="1">
+    <path d="M0 520 C 360 500, 700 160, 1440 80"/><path d="M0 545 C 360 525, 720 190, 1440 110"/><path d="M0 570 C 360 550, 740 220, 1440 140"/><path d="M0 595 C 360 575, 760 250, 1440 170"/><path d="M0 620 C 360 600, 780 280, 1440 200"/><path d="M0 645 C 360 625, 800 310, 1440 230"/>
+  </svg>
+  <div class="wrap" style="position:relative">
+    <div class="eyebrow">A personal approach</div>
+    <h2>You deserve an advisor who knows <em>your name</em>, not just your account number.</h2>
+    <p>I work directly with every client. No call centers, no hand-offs. Together we build a plan around what matters to you: your family, your career, your retirement, and the causes you care about.</p>
+    <p>For more than 25 years, I've helped San Diegans make confident decisions about their money, one relationship at a time.</p>
+    <a class="btn" href="#">Learn about my approach</a>
+  </div>
+</section>
+
+<!-- WHO I SERVE -->
+<section class="serve" id="serve">
+  <div class="wrap">
+    <div class="serve-head">
+      <h2>Guidance for where you are in life</h2>
+      <p>Every plan starts with a conversation about you. These are the people I've spent my career helping.</p>
+    </div>
+    <div class="sgrid">
+      <div class="scard"><img src="img/women.jpg" alt=""><div class="eyebrow">Women & Wealth</div><h3>Women</h3><ul><li>Planning through divorce or widowhood</li><li>Closing the retirement gap</li><li>Taking charge of family finances</li></ul><a class="link" href="#">Planning for women</a></div>
+      <div class="scard"><img src="img/pro.jpg" alt=""><div class="eyebrow">Careers & Benefits</div><h3>Professionals</h3><ul><li>Pensions, 403(b) & deferred comp</li><li>Social Security timing</li><li>Turning a career into retirement</li></ul><a class="link" href="#">Planning for professionals</a></div>
+      <div class="scard"><img src="img/family.jpg" alt=""><div class="eyebrow">Families & Community</div><h3>Families</h3><ul><li>First-generation wealth building</li><li>Education & legacy planning</li><li>Charitable giving that lasts</li></ul><a class="link" href="#">Planning for families</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS (Ellevest card layout, original paper/personal vignettes) -->
+<section class="how">
+  <div class="wrap center">
+    <div class="eyebrow">How it works</div>
+    <h2>Comprehensive planning, one conversation at a time</h2>
+    <div class="hgrid" style="text-align:left">
+      <div class="hcard">
+        <h3>Understand where you are</h3>
+        <p>We start with a deep conversation about your finances, your goals, and what matters most to you.</p>
+        <div class="vig">
+          <img class="bg" src="img/how-coffee.jpg" alt="">
+          <div class="paper note-card"><div class="eyebrow">What matters most</div><ol><li>Retire by 65</li><li>Help the kids with college</li><li>Stay in our home</li><li>Give back</li></ol></div>
+        </div>
+      </div>
+      <div class="hcard">
+        <h3>Plan for where you want to be</h3>
+        <p>A personalized plan that puts your goals in order, with clear next steps for each one.</p>
+        <div class="vig">
+          <img class="bg" src="img/how-plan.jpg" alt="">
+          <div class="paper tabs-card"><div class="eyebrow">Your financial plan</div><div class="tab"><i style="background:var(--green-700)"></i>Retirement income</div><div class="tab"><i style="background:var(--rose-300)"></i>Taxes</div><div class="tab"><i style="background:#82abe4"></i>Insurance & protection</div><div class="tab"><i style="background:#c5d8be"></i>Estate & legacy</div></div>
+        </div>
+      </div>
+      <div class="hcard">
+        <h3>Stay on track, together</h3>
+        <p>Regular check-ins with me directly to review progress and adjust as your life changes.</p>
+        <div class="vig">
+          <img class="bg" src="img/how-review.jpg" alt="">
+          <div class="paper cal-card"><div class="date"><small>MAR</small><b>14</b></div><div><div class="eyebrow">Annual review</div><strong>Thursday · 10:00 AM</strong><span><img src="../../../assets/photos/headshot.jpg" alt="">with Roohi</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="cta"><a class="btn" href="#">Get in touch</a></div>
+  </div>
+</section>
+
+<!-- WOMEN SPOTLIGHT -->
+<section class="women">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Retirement planning for women</div>
+      <h2 style="margin-top:16px">Women live longer, earn differently, and <em>plan differently.</em></h2>
+      <p class="lede">Your plan should reflect that. I help women build retirement plans that account for longer lifespans, career breaks, and the life changes no one plans for.</p>
+      <ol class="promises"><li>Protect what you've built</li><li>Maintain the life you love</li><li>Retire with confidence</li></ol>
+    </div>
+    <div class="women-media">
+      <img src="img/friends.jpg" alt="">
+      <div class="fit">
+        <div class="eyebrow">This is for you if</div>
+        <h3>We may be a great fit if…</h3>
+        <ul>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="#e3aaa4" stroke-width="1.8"><circle cx="10" cy="10" r="9"/><path d="M6 10l3 3 5-6"/></svg>You're within 10–15 years of retirement</li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="#e3aaa4" stroke-width="1.8"><circle cx="10" cy="10" r="9"/><path d="M6 10l3 3 5-6"/></svg>You're navigating a change: divorce, loss, or a new chapter</li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="#e3aaa4" stroke-width="1.8"><circle cx="10" cy="10" r="9"/><path d="M6 10l3 3 5-6"/></svg>You want a plan, and someone you can call</li>
+        </ul>
+        <a class="link" href="#">Start the conversation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<div class="tl-hero">
+  <div class="wrap">
+    <div class="eyebrow">25+ years in San Diego</div>
+    <h2>A career built on relationships</h2>
+  </div>
+</div>
+<section class="timeline">
+  <div class="wrap">
+    <div class="tl">
+      <div class="tl-row"><div class="left tl-year"><span class="tbd">199X</span></div><div class="tl-dot"></div><div class="right tl-text"><b>Begins advising in San Diego</b>First clients, many of whom are still with her today. <span class="tbd">confirm</span></div></div>
+      <div class="tl-row"><div class="left tl-text"><b>Earns the CRPC® designation</b>Chartered Retirement Planning Counselor.</div><div class="tl-dot"></div><div class="right tl-year"><span class="tbd">20XX</span></div></div>
+      <div class="tl-row"><div class="left tl-year"><span class="tbd">20XX</span></div><div class="tl-dot"></div><div class="right tl-text"><b>Joins the board of Developments in Literacy, San Diego</b>Supporting schools for underserved children, especially girls, in Pakistan. <span class="tbd">year + exact role</span></div></div>
+      <div class="tl-row"><div class="left tl-text"><b>Goes independent with LPL Financial</b>Moves from Waddell &amp; Reed to run her own independent practice.</div><div class="tl-dot"></div><div class="right tl-year">2018</div></div>
+      <div class="tl-row"><div class="left tl-year">Today</div><div class="tl-dot"></div><div class="right tl-text"><b>Serving clients across San Diego</b>Women, professionals, and families, with the same personal approach.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STORIES (full bleed scroller) -->
+<section class="stories">
+  <div class="wrap">
+    <div class="stories-head">
+      <div><div class="eyebrow" style="color:#becfbe">Client stories</div><h2 style="color:#fff;margin-top:14px">Some clients I've helped</h2></div>
+      <div style="display:flex;gap:40px;align-items:end"><p>Every story is different. Here are a few of the situations I see most.</p><div class="arrows"><i>←</i><i>→</i></div></div>
+    </div>
+  </div>
+  <div class="strack">
+    <div class="story"><img src="img/story-maria.jpg" alt=""><div class="body"><div class="eyebrow">Starting over</div><h3>Maria, 58</h3><div class="who">Recently widowed</div><p>Managing the family finances on her own for the first time, Maria wanted to know she'd be okay.</p><a class="link" href="#">Read her story</a></div></div>
+    <div class="story"><img src="img/story-couple.jpg" alt=""><div class="body"><div class="eyebrow">Career professionals</div><h3>David & Priya, 52 and 49</h3><div class="who">Two careers, one plan</div><p>Two retirement plans, a pension, and kids headed to college. They needed it all in one place.</p><a class="link" href="#">Read their story</a></div></div>
+    <div class="story"><img src="img/story-linda.jpg" alt=""><div class="body"><div class="eyebrow">Preparing for retirement</div><h3>Linda, 63</h3><div class="who">School administrator</div><p>With a pension and a 403(b), Linda wanted to retire at 65 without second-guessing.</p><a class="link" href="#">Read her story</a></div></div>
+    <div class="story"><img src="img/women.jpg" alt=""><div class="body"><div class="eyebrow">Divorce</div><h3>Nasrin, 54</h3><div class="who">A fresh start</div><p>After 25 years of marriage, Nasrin needed to rebuild a plan for one.</p><a class="link" href="#">Read her story</a></div></div>
+  </div>
+  <p class="disclosure">Client stories are hypothetical composites for illustrative purposes only and do not represent actual clients. Individual results will vary. <span class="tbd">LPL to approve wording</span></p>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="wrap">
+    <div class="eyebrow">Client reviews</div>
+    <blockquote>"Roohi made me feel <em>confident</em> about decisions I'd been avoiding for years."</blockquote>
+    <div class="by">CLIENT NAME* <span class="tbd">placeholder; only if LPL approves</span></div>
+    <div class="dots"><i></i><i></i><i></i><i></i></div>
+    <p class="disclosure">*Testimonials were given by current clients and may not be representative of the experience of other clients. No compensation was provided. Testimonials are not a guarantee of future performance or success.</p>
+  </div>
+</section>
+
+<!-- COMMUNITY (half bleed) -->
+<section class="community" id="community">
+  <div class="grid">
+    <div class="img"></div>
+    <div class="txt">
+      <div class="eyebrow">Giving back</div>
+      <h2 style="margin-top:16px">Rooted in the San Diego community</h2>
+      <p class="lede">Outside the office, Roohi volunteers her time and expertise with organizations that support women, families, and underserved communities across San Diego.</p>
+      <div class="orgs">
+        <div class="org"><b>Developments in Literacy</b><span>Board member, San Diego chapter <span class="tbd">confirm title</span></span></div>
+        <div class="org"><b>House of Pakistan, Balboa Park</b><span>Volunteer · honored 2024</span></div>
+        <div class="org"><b>Rancho Santa Fe Business &amp; Professional Women</b><span>Member</span></div>
+        <div class="org"><b>NISWA</b><span>Member</span></div>
+        <div class="org"><b>SDNari</b><span>Member</span></div>
+        <div class="org"><b>Business Network International</b><span>Member</span></div>
+      </div>
+      <a class="link" href="#">See her community work</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div><h2>FAQs</h2><p class="lede">The things people most often ask before our first meeting.</p></div>
+    <div>
+      <details open><summary>What does the first consultation look like?</summary><p>A relaxed conversation, in person or by video, about where you are and where you want to be. There's no cost and no obligation.</p></details>
+      <details><summary>Do I need a certain amount to work with you?</summary><p>Placeholder answer. <span class="tbd">Roohi to confirm minimums</span></p></details>
+      <details><summary>How are you paid?</summary><p>Placeholder answer. <span class="tbd">LPL-approved fee language</span></p></details>
+      <details><summary>What is LPL Financial?</summary><p>Placeholder answer. <span class="tbd">LPL-approved description</span></p></details>
+      <details><summary>Can you work with my CPA or attorney?</summary><p>Placeholder answer.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <img src="../../../assets/photos/headshot.jpg" alt="">
+    <div><h2>Meet with Roohi</h2><p>Let's talk about your goals. Your first consultation is free.</p><a class="btn" href="#">Schedule a Consultation</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="logo" href="#"><span class="mark">RD</span><span class="name"><b>Roohi Darugar</b><small>CRPC® · Financial Advisor</small></span></a>
+        <p style="margin-top:22px">San Diego, CA 92128<br><span class="tbd">phone</span> · <span class="tbd">email</span></p>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="#">Services</a></li><li><a href="#">Who I Serve</a></li><li><a href="#">Client Stories</a></li><li><a href="#">About</a></li></ul></div>
+      <div><h4>Learn</h4><ul><li><a href="#">Insights</a></li><li><a href="#">Tools</a></li><li><a href="#">FAQ</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h4>Clients & Disclosures</h4><ul><li><a href="#">LPL Account View</a></li><li><a href="https://brokercheck.finra.org/" target="_blank">FINRA BrokerCheck</a></li><li><a href="https://www.finra.org/" target="_blank">FINRA</a> · <a href="https://www.sipc.org/" target="_blank">SIPC</a></li><li><a href="#">Form CRS</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <p>Securities and advisory services offered through LPL Financial, a Registered Investment Advisor. Member <a href="https://www.finra.org/" target="_blank">FINRA</a>/<a href="https://www.sipc.org/" target="_blank">SIPC</a>. <span class="tbd">exact LPL disclosure text</span></p>
+      <p>The LPL Financial registered representative associated with this website may discuss and/or transact business only with residents of the states in which they are properly registered or licensed. No offers may be made or accepted from any resident of any other state.</p>
+      <p>LPL Financial and its representatives do not provide tax or legal advice. Check the background of this financial professional on <a href="https://brokercheck.finra.org/" target="_blank">FINRA's BrokerCheck</a>.</p>
+    </div>
+  </div>
+</footer>
+
+<a class="brokercheck" href="https://brokercheck.finra.org/" target="_blank" title="Check the background of this financial professional on FINRA's BrokerCheck"><b>Broker<span>Check</span></b><small>by</small><em>FINRA</em></a>
+
+</body>
+</html>
