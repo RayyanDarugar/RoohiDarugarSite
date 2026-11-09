@@ -3,7 +3,10 @@ import Link from "next/link";
 import { orgs, site } from "@/content/site";
 import { FinalCta, Fill, PageHead, Timeline } from "@/components/sections";
 
-export const metadata: Metadata = { title: "About Roohi" };
+export const metadata: Metadata = {
+  title: "About Roohi",
+  description: "Meet Roohi Darugar, CRPC®: 25+ years helping San Diego families plan, an independent advisor with LPL Financial, and an active community volunteer.",
+};
 
 export default function About() {
   return (

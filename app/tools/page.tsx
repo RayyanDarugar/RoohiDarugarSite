@@ -3,7 +3,10 @@ import Link from "next/link";
 import { site, tools } from "@/content/site";
 import { FinalCta, PageHead } from "@/components/sections";
 
-export const metadata: Metadata = { title: "Tools" };
+export const metadata: Metadata = {
+  title: "Tools",
+  description: "Free retirement and Social Security calculators, plus a quick quiz to see if you're ready for a financial planner.",
+};
 
 const icons = [
   <svg key="a" viewBox="0 0 26 26" fill="none" strokeWidth="1.6" strokeLinecap="round"><rect x="4" y="2" width="18" height="22" rx="2" /><path d="M8 7h10M8 12h2M12 12h2M16 12h2M8 16h2M12 16h2M16 16h2M8 20h2M12 20h6" /></svg>,
@@ -26,13 +29,13 @@ export default function Tools() {
         <div className="wrap">
           <div className="toolgrid">
             {tools.map((t, i) => (
-              <div className="tool" key={t.title}>
+              <Link className="tool" href={`/tools/${t.slug}`} key={t.title}>
                 <div className="ico">{icons[i]}</div>
                 <div className="eyebrow" style={{ fontSize: 12, color: "var(--ink-soft)" }}>{t.tag}</div>
                 <h3>{t.title}</h3>
                 <p>{t.body}</p>
-                <span className="soon" style={{ alignSelf: "flex-start" }}>Coming soon</span>
-              </div>
+                <span className="link" style={{ alignSelf: "flex-start" }}>{t.cta} →</span>
+              </Link>
             ))}
           </div>
           <p className="disclosure">

@@ -13,7 +13,8 @@ export const site = {
   crd: "3178408",
   brokerCheckUrl: "https://brokercheck.finra.org/individual/summary/3178408",
   formCrsUrl: "https://www.lpl.com/CRS",
-  bookingUrl: "/contact", // replace with Calendly link
+  bookingUrl: "/contact",
+  calendlyUrl: "", // e.g. "https://calendly.com/roohi-darugar/consultation"; embeds on /contact when set
   linkedin: "https://www.linkedin.com/in/roohi-darugar-crpc/",
   // Feature flags for proof-of-concept mode
   showTestimonials: false,
@@ -176,19 +177,19 @@ export const compare = {
   ],
 };
 
-export const insights = [
-  { cat: "Retirement", title: "When should you claim Social Security?", img: "/img/insights-porch.jpg", read: "6 min read" },
+export const insights: { slug?: string; cat: string; title: string; img: string; read: string }[] = [
+  { slug: "when-to-claim-social-security", cat: "Retirement", title: "When should you claim Social Security?", img: "/img/insights-porch.jpg", read: "6 min read" },
   { cat: "Women & Wealth", title: "Five money conversations to have before a big life change", img: "/img/friends.jpg", read: "5 min read" },
-  { cat: "Taxes", title: "Year-end checklist: small moves that add up", img: "/img/insights-calc.jpg", read: "4 min read" },
+  { slug: "year-end-financial-checklist", cat: "Taxes", title: "Year-end checklist: small moves that add up", img: "/img/insights-calc.jpg", read: "4 min read" },
   { cat: "Family", title: "Helping with college without risking your retirement", img: "/img/insights-family.jpg", read: "7 min read" },
-  { cat: "Careers", title: "What to do with your 401(k) when you change jobs", img: "/img/insights-cafe.jpg", read: "5 min read" },
+  { slug: "401k-when-you-change-jobs", cat: "Careers", title: "What to do with your 401(k) when you change jobs", img: "/img/insights-cafe.jpg", read: "5 min read" },
   { cat: "Planning", title: "Why a plan beats a goal", img: "/img/how-plan.jpg", read: "3 min read" },
 ];
 
 export const tools = [
-  { title: "Retirement savings calculator", body: "See how your savings could grow by retirement, and what a monthly change could mean.", tag: "Calculator" },
-  { title: "Social Security timing", body: "Compare estimated benefits at 62, full retirement age, and 70.", tag: "Calculator" },
-  { title: "Are you ready for a financial planner?", body: "Ten quick questions to see where a plan could help most.", tag: "Quiz" },
+  { slug: "retirement-calculator", title: "Retirement savings calculator", body: "See how your savings could grow by retirement, and what a monthly change could mean.", tag: "Calculator", cta: "Run the numbers" },
+  { slug: "social-security", title: "Social Security timing", body: "Compare estimated benefits at 62, full retirement age, and 70, and see your break-even age.", tag: "Calculator", cta: "Compare claiming ages" },
+  { slug: "readiness-quiz", title: "Are you ready for a financial planner?", body: "Ten quick questions to see where a plan could help most.", tag: "Quiz · 2 minutes", cta: "Take the quiz" },
 ];
 
 export const disclosures = [

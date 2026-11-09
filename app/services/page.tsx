@@ -3,7 +3,10 @@ import Link from "next/link";
 import { alsoHelp, compare, services, site } from "@/content/site";
 import { Faq, FinalCta, Fill, PageHead } from "@/components/sections";
 
-export const metadata: Metadata = { title: "Services" };
+export const metadata: Metadata = {
+  title: "Services",
+  description: "Financial planning, wealth management, and retirement planning in San Diego from Roohi Darugar, CRPC®, plus help with Social Security, insurance, estate, and education planning.",
+};
 
 export default function Services() {
   return (

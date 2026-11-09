@@ -3,7 +3,10 @@ import Link from "next/link";
 import { segments, site } from "@/content/site";
 import { Check, FinalCta, Fill, PageHead, Stories } from "@/components/sections";
 
-export const metadata: Metadata = { title: "Who I Serve" };
+export const metadata: Metadata = {
+  title: "Who I Serve",
+  description: "Financial guidance for women, professionals, families, and business owners in San Diego, with client stories that show how planning helps.",
+};
 
 export default function WhoIServe() {
   return (

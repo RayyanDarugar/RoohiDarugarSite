@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import { site } from "@/content/site";
 import { PageHead } from "@/components/sections";
 import ContactForm from "@/components/ContactForm";
+import BookingEmbed from "@/components/BookingEmbed";
 
-export const metadata: Metadata = { title: "Contact" };
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Schedule a free consultation with Roohi Darugar, CRPC®, financial advisor in San Diego.",
+};
 
 export default function Contact() {
   return (
@@ -34,7 +38,7 @@ export default function Contact() {
 
           <div className="booking">
             <div className="eyebrow">Book a free consultation</div>
-            <div className="booking-slot">Online scheduling will appear here.</div>
+            <BookingEmbed />
             <div className="eyebrow" style={{ marginBottom: 18 }}>Or send a message</div>
             <ContactForm />
           </div>

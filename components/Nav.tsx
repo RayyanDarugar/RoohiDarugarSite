@@ -9,6 +9,14 @@ import Logo from "./Logo";
 export default function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 8);
+    on();
+    window.addEventListener("scroll", on, { passive: true });
+    return () => window.removeEventListener("scroll", on);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -18,7 +26,7 @@ export default function Nav() {
   }, [open]);
 
   return (
-    <header className="nav">
+    <header className={`nav${scrolled ? " scrolled" : ""}`}>
       <div className="wrap">
         <Logo />
         <ul>
