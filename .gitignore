@@ -6,3 +6,8 @@ out/
 .env*
 # third-party page captures used only for local comparison
 docs/design/sketch-fonts/ref-*.png
+/build
+*.tsbuildinfo
+next-env.d.ts
+npm-debug.log*
+.pnpm-debug.log*
